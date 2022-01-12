@@ -13,7 +13,7 @@ const auth = (req, res, next) => {
     const token = authHeader.split(" ")[1];
     try {
         const payload = jwt.verify(token, "secret-code");
-        console.log(payload);
+        //console.log(payload);
         // attach the user to the job routes
         const user = User.findById(payload.id).select("-password");
         req.user = user;
